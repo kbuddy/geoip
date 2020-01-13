@@ -2,9 +2,10 @@
 
 set -e
 
-curl --insecure -L -o GeoLite2-Country-CSV.zip "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country-CSV&license_key=${LICENSE_KEY}&suffix=zip"
-unzip GeoLite2-Country-CSV.zip
+curl -L -o GeoLite2-Country-CSV.zip "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country-CSV&license_key=${LICENSE_KEY}&suffix=zip"
+zip -FF GeoLite2-Country-CSV.zip --out GeoLite2-Country-CSV2.zip | unzip
 rm GeoLite2-Country-CSV.zip
+rm GeoLite2-Country-CSV2.zip
 mv GeoLite2* geoip
 ls ./geoip
 
