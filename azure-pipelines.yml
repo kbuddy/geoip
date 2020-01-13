@@ -10,9 +10,7 @@ jobs:
 
   steps:
   - checkout: self
-  - task: GoTool@0
-    env:
-      LICENSE_KEY: $(LICENSE_KEY)
+  - task: GoTool@0     
     inputs:
       version: '1.12'
   - script: |
@@ -21,6 +19,8 @@ jobs:
       $(Build.SourcesDirectory)/generate.sh
       ls -al ./publish/
     workingDirectory: '$(system.defaultWorkingDirectory)'
+    env:
+       LICENSE_KEY: $(LICENSE_KEY)
     displayName: 'Generate'
   - task: CopyFiles@2
     inputs:
