@@ -11,6 +11,8 @@ jobs:
   steps:
   - checkout: self
   - task: GoTool@0
+    env:
+      LICENSE_KEY: $(LICENSE_KEY)
     inputs:
       version: '1.12'
   - script: |
